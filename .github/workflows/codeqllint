@@ -1,0 +1,39 @@
+name: "Lint JavaScript, CSS, and SCSS"
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    name: Lint Code
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # Install Node.js
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    # Install dependencies
+    - name: Install dependencies
+      run: |
+        npm install eslint stylelint stylelint-config-standard stylelint-scss eslint-plugin-css-modules
+
+    # Lint JavaScript files using ESLint
+    - name: Run ESLint
+      run: |
+        npx eslint "**/*.js"
+
+    # Lint CSS and SCSS files using Stylelint
+    - name: Run Stylelint
+      run: |
+        npx stylelint "**/*.css" "**/*.scss"
