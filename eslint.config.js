@@ -1,13 +1,11 @@
 // eslint.config.js
-import { defineConfig } from 'eslint';
-
-export default defineConfig({
+module.exports = {
   extends: [
-    'eslint:recommended',  // Default ESLint recommended rules
-    'plugin:prettier/recommended',  // Optional, for Prettier integration
+    'eslint:recommended',
+    'plugin:prettier/recommended',
   ],
   parserOptions: {
-    ecmaVersion: 2020,  // Adjust based on your JavaScript version
+    ecmaVersion: 2020,
     sourceType: 'module',
   },
   env: {
@@ -17,4 +15,4 @@ export default defineConfig({
   rules: {
     // Your custom rules here
   },
-});
+};
