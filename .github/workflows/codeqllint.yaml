@@ -3,10 +3,10 @@ name: "Lint JavaScript, CSS, and SCSS"
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   lint:
